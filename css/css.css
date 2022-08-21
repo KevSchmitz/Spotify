@@ -14,7 +14,7 @@ html {
 .triple {
     display: grid;
     grid-template-columns: 0.8fr 4fr 0.8fr;
-    gap: 0.5rem;
+    /* gap: 0.5rem; */
     height: auto;
 }
 
@@ -33,11 +33,9 @@ html {
     opacity: 100%;
 }
 
-/* .navegador {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-} */
+.navegador {
+    margin-bottom: 3rem;
+}
 
 .navegador ul {
     display: flex;
@@ -72,7 +70,7 @@ html {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    height: 55vh;
+    height: 52vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
@@ -102,8 +100,8 @@ html {
 
 .me-gusta {
     display: flex;
-    background: rgb(188, 216, 255);
-    background: linear-gradient(315deg, rgba(188, 216, 255, 1) 0%, rgba(92, 9, 185, 1) 40%);
+    background: rgb(188, 224, 218);
+    background: linear-gradient(315deg, rgba(188, 224, 218, 1) 0%, rgba(82, 33, 242, 1) 100%);
     padding: 0.2rem;
     border-radius: 3px;
     width: 25px;
@@ -117,9 +115,8 @@ html {
 }
 
 .episodios {
+    background-color: #006450;
     display: flex;
-    background: rgb(52, 131, 59);
-    background: linear-gradient(180deg, rgba(52, 131, 59, 1) 0%, rgba(51, 89, 59, 1) 40%);
     padding: 0.2rem;
     border-radius: 3px;
     width: 25px;
@@ -128,15 +125,17 @@ html {
 }
 
 #episodios {
-    filter: opacity(0.75)drop-shadow(0 0 0 rgb(38, 255, 0));
-    width: 80%;
-    height: 95%;
-    margin: 0 auto;
+    filter: invert(87%) sepia(46%) saturate(3340%) hue-rotate(73deg) brightness(88%) contrast(91%);
+    width: 60%;
+    height: 75%;
+    margin: auto;
 
 }
 
 .main {
     overflow-y: scroll;
+    background: rgb(18, 18, 18);
+    background: linear-gradient(0deg, rgba(18, 18, 18, 1) 70%, rgba(29, 14, 69, 1) 100%);
 }
 
 .aside2 {
@@ -150,12 +149,15 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    height: 4rem;
 }
 
 .controls {
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(5, 3.25rem);
+    margin: auto;
 }
+
 
 .control-icons {
     display: flex;
@@ -167,49 +169,85 @@ html {
     width: 2.5rem;
 }
 
+.control-icons:nth-child(1),
+.control-icons:nth-child(2),
+.control-icons:nth-child(3),
+.control-icons:nth-child(4),
+.control-icons:nth-child(5) {
+    filter: invert(100%) sepia(100%) saturate(24%) hue-rotate(26deg) brightness(105%) contrast(105%);
+    margin: auto;
+    padding: .6rem;
+}
+
+.control-icons:nth-child(3) {
+    filter: none;
+}
+
+
 .control-icons:hover {
     opacity: 100%;
 }
 
-.controls img {
-    width: 1.2rem;
-    filter: invert(100%) sepia(100%) saturate(24%) hue-rotate(26deg) brightness(105%) contrast(105%);
-}
+
 
 .barra-tiempo {
     display: grid;
-    grid-template-columns: 0.5fr 14fr 0.5fr;
+    grid-template-columns: 0.5fr 22fr 0.5fr;
     gap: 0.5rem;
 }
 
 .play {
-    padding: 0.5rem;
-    background-color: lightgray;
-    padding: 0.5rem;
+    background-color: white;
     border-radius: 2rem;
+    opacity: 1;
 }
 
 #play {
     transition: 0.2s;
-    filter: none;
 }
 
-#play:hover {
-    width: 1.35rem;
-}
 
-.tiempo {
-    width: 100%;
+.barra-progreso {
+    position: relative;
     height: 0.3rem;
-    background-color: lightgray;
-    margin: auto 0.1rem;
+    width: 100%;
+    background-color: rgba(211, 211, 211, 0.5);
     border-radius: 5rem;
     cursor: pointer;
+    margin: auto 0.1rem;
+}
 
+.barra-tiempo p {
+    font-size: 0.8rem;
+}
+
+.barra-progreso .tiempo {
+    position: absolute;
+    width: 50%;
+    background-color: white;
+    height: inherit;
+    border-radius: inherit;
+}
+
+.tiempo:hover {
+    background-color: #1DB954;
+}
+
+.tiempo:hover::before {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    border-radius: inherit;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -5px;
 }
 
 .footer {
+    background-color: #181818;
     width: 100%;
-    border-top: 1px solid gray;
+    border-top: 1px solid #282828;
     padding: 1rem;
 }

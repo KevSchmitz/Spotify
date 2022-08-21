@@ -25,12 +25,7 @@ body {
     font-family: Roboto;
     font-size: 1rem;
     color: white;
-    background-color: black;
-}
-
-main {
-    background: rgb(48, 76, 94);
-    background: linear-gradient(180deg, rgba(48, 76, 94, 1) 0%, rgba(0, 0, 0, 1) 15%);
+    background-color: #000000;
 }
 
 .bold {
