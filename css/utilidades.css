@@ -1,0 +1,38 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+body {
+    font-family: Roboto;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+}
+
+main {
+    background: rgb(48, 76, 94);
+    background: linear-gradient(180deg, rgba(48, 76, 94, 1) 0%, rgba(0, 0, 0, 1) 15%);
+}
+
+.bold {
+    font-weight: bold;
+}
