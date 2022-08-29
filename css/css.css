@@ -237,6 +237,7 @@ html {
 
 #play {
     transition: 0.2s;
+    margin-left: 0.1rem;
 }
 
 .barra-tiempo {
