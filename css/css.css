@@ -225,17 +225,18 @@ html {
     gap: 0.5rem;
 }
 
-.play {
+.play-pause {
     background-color: white;
     border-radius: 2rem;
     opacity: 1;
 }
 
-.play:hover {
+
+.play-pause:hover {
     transform: scale(1.15);
 }
 
-#play {
+.play-pause img {
     transition: 0.2s;
     margin-left: 0.1rem;
 }
@@ -316,6 +317,11 @@ html {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+}
+
+.cancion-album img {
+    width: 4rem;
+    height: 4rem;
 }
 
 .cancion-nombre a {
