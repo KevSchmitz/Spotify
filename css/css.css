@@ -166,8 +166,10 @@ html {
 /* REPRODUCTOR */
 
 .footer {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
     background-color: #181818;
     width: 100%;
     border-top: 1px solid #282828;
@@ -261,7 +263,7 @@ html {
 
 .barra-progreso .tiempo {
     position: absolute;
-    width: 50%;
+    width: 0%;
     background-color: white;
     height: inherit;
     border-radius: inherit;
@@ -281,6 +283,11 @@ html {
     top: 50%;
     transform: translateY(-50%);
     right: -5px;
+}
+
+.contenedor-miscelaneos {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .miscelaneos {
