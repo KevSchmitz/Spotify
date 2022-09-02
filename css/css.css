@@ -166,8 +166,6 @@ html {
 /* REPRODUCTOR */
 
 .footer {
-    /* display: flex;
-    justify-content: space-between; */
     display: grid;
     grid-template-columns: 2fr 8fr 2fr;
     background-color: #181818;
@@ -210,6 +208,10 @@ html {
     filter: invert(100%) sepia(100%) saturate(24%) hue-rotate(26deg) brightness(105%) contrast(105%);
     margin: auto;
     padding: .6rem;
+}
+
+.opacidad {
+    opacity: 1;
 }
 
 .control-icons:nth-child(3) {

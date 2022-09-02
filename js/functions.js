@@ -10,7 +10,6 @@ class Cancion {
   }
 }
 
-
 function cargarCancion(numeroIndice) {
   nombreCancion.textContent = canciones[`${numeroIndice}`].nombre;
   artistaCancion.textContent = canciones[`${numeroIndice}`].artista;
@@ -34,14 +33,12 @@ function atrasCancion() {
   indiceArreglo < 0 ? indiceArreglo = canciones.length - 1 : indiceArreglo = indiceArreglo;
   cargarCancion(indiceArreglo);
   reproducirCancion();
-  console.log(indiceArreglo);
-
 }
+
 function adelantarCancion() {
 
   indiceArreglo++;
   indiceArreglo > canciones.length - 1 ? indiceArreglo = 0 : indiceArreglo = indiceArreglo;
   cargarCancion(indiceArreglo);
   reproducirCancion();
-  console.log(indiceArreglo);
 }
