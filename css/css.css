@@ -153,6 +153,97 @@ html {
 
 }
 
+/* HEADER */
+
+.header-contenedor {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 4rem;
+    align-items: center;
+    margin: 0 auto 2rem auto;
+}
+
+.header-controles {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fondo-controles {
+    padding: 0.5rem;
+    border-radius: 5rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: #000000;
+}
+
+.fondo-controles img {
+    filter: invert(100%) sepia(100%) saturate(24%) hue-rotate(26deg) brightness(105%) contrast(105%);
+}
+
+.header-perfil {
+    display: flex;
+    color: white;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.4rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10rem;
+    height: 2.2rem;
+}
+
+.header-perfil:hover {
+    background-color: #282828;
+}
+
+.header-perfil .perfil-foto {
+    width: 2rem;
+    border-radius: 5rem;
+}
+
+.header-perfil .perfil-icono {
+    width: 0.75rem;
+    height: 0.75rem;
+    filter: invert(100%) sepia(100%) saturate(24%) hue-rotate(26deg) brightness(105%) contrast(105%);
+
+}
+
+/* PLAYLIST */
+
+.contenedor-playlist {
+    display: flex;
+    gap: 2rem;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.playlist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.playlist-privacidad {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.playlist-titulo {
+    font-size: 6rem;
+    margin: 0;
+}
+
+.playlist-comentario {
+    color: #808080;
+}
+
+.playlist-misc {
+    display: flex;
+    gap: 0.3rem;
+}
+
 .main {
     overflow-y: scroll;
     background: rgb(18, 18, 18);
@@ -249,6 +340,10 @@ html {
     display: grid;
 }
 
+.barra-tiempo p {
+    font-size: 0.8rem;
+}
+
 .barra-progreso {
     position: relative;
     height: 0.3rem;
@@ -257,10 +352,6 @@ html {
     border-radius: 5rem;
     cursor: pointer;
     margin: auto 0.1rem;
-}
-
-.barra-tiempo p {
-    font-size: 0.8rem;
 }
 
 .barra-progreso .tiempo {
@@ -276,6 +367,48 @@ html {
 }
 
 .barra-progreso:hover .tiempo:hover::before {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    border-radius: inherit;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -5px;
+}
+
+.barra-volumen {
+    display: grid;
+}
+
+.barra-volumen p {
+    font-size: 0.8rem;
+}
+
+.vol-barra-progreso {
+    position: relative;
+    height: 0.3rem;
+    width: 100%;
+    background-color: rgba(211, 211, 211, 0.5);
+    border-radius: 5rem;
+    cursor: pointer;
+    margin: auto 0.1rem;
+}
+
+.vol-barra-progreso .volumen-actual {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    height: inherit;
+    border-radius: inherit;
+}
+
+.volumen-actual:hover {
+    background-color: #1DB954;
+}
+
+.vol-barra-progreso:hover .volumen-actual:hover::before {
     content: '';
     position: absolute;
     height: 10px;

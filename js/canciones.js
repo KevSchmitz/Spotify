@@ -10,3 +10,8 @@ const canciones = [
   new Cancion('5', 'Ojitos lindos', 'Bad Bunny', 'Verano sin ti', 'verano sin ti', '4:118', 'Bad Bunny, Bomba Estéreo - Ojitos Lindos (Letra-Lyrics)')
 ];
 
+const playlists = [
+  new Playlist(1, `${canciones[1].imagen}`, `${canciones[1].nombre}`, `${canciones[1].artista}`, `${canciones[1].album}`, 'Sep 05, 2022', `${canciones[1].duracion}`)
+]
+
+console.log(playlists)

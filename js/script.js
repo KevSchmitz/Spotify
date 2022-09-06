@@ -74,36 +74,41 @@ botonSiguiente.addEventListener('click', () => {
 
 // Para poner modo repetir canción.
 const botonRepetir = document.querySelector('#repetir');
-let tomarTexto = botonRepetir.textContent = 'repetir'; // Colocando el texto repetir.
-
+let tomarTexto = botonRepetir.textContent; // Tomar el texto del icono.
+tomarTexto = botonRepetir.textContent = 'repetir'; // Colocando el texto repetir.
+console.log(tomarTexto);
 botonRepetir.addEventListener('click', () => {
-  let tomarTexto = botonRepetir.textContent; // Tomar el texto del icono.
   switch (tomarTexto) {
     case 'repetir': // Si el texto del icono es repetir cambiar a repetir_una
-      botonRepetir.textContent = 'repetir_una'; // Si el texto es repetir_una
+      tomarTexto = 'repetir_una'; // Si el texto es repetir_una
       botonRepetir.src = 'iconosweb/reproductor/repita-una-vez.png';
       document.querySelector('.control-icons:nth-child(5)').classList.add('opacidad');
+      console.log(tomarTexto);
       break;
     case 'repetir_una': // Si el texto del icono es repetir_una cambiar a repetir.
-      botonRepetir.textContent = 'repetir'; // Si el texto es repetir_una
+      tomarTexto = 'repetir'; // Si el texto es repetir_una
       botonRepetir.src = 'iconosweb/reproductor/repetir.png';
       document.querySelector('.control-icons:nth-child(5)').classList.remove('opacidad');
+      console.log(tomarTexto);
       break;
   }
 })
 
-// audioPrincipal.addEventListener('ended', () => {
-//   switch (tomarTexto) {
-//     case 'repetir':
-//       adelantarCancion();
-//       break;
-//     case 'repetir_una':
-//       audioPrincipal.currentTime = 0;
-//       cargarCancion(indiceArreglo);
-//       reproducirCancion();
-//       break;
-//   }
-// })
+
+audioPrincipal.addEventListener('ended', () => {
+  switch (tomarTexto) {
+    case 'repetir':
+      adelantarCancion(); // Para saltar la canción cuando termina.
+
+      break;
+    case 'repetir_una':
+      audioPrincipal.duration = 0;
+      cargarCancion(indiceArreglo);
+      reproducirCancion();
+      break;
+  }
+})
+
 
 // Para poner modo aleatorio.
 const botonAleatorio = document.querySelector('.control-icons:nth-child(1)');
@@ -114,6 +119,7 @@ botonAleatorio.addEventListener('click', () => {
     case 'apagado':
       botonAleatorio.classList.add('opacidad');
       tomarTexto2 = document.querySelector('#shuffle').textContent = 'encendido';
+      console.log('Cambiando a encendido');
       break;
 
     case 'encendido':
@@ -123,13 +129,33 @@ botonAleatorio.addEventListener('click', () => {
   }
 })
 
-// audioPrincipal.addEventListener('ended', () => {
-//   if (tomarTexto2 == 'encendido') {
-//     indiceArreglo = Math.random(indiceArreglo);
-//   }
-// })
-
-// Para saltar la canción cuando termina.
 audioPrincipal.addEventListener('ended', () => {
-  adelantarCancion();
+  if (tomarTexto2 == 'encendido') {
+    console.log('está encendido el shuffle');
+    let indiceShuffle = Math.floor(Math.random() * canciones.length);
+    cargarCancion(indiceShuffle);
+    reproducirCancion();
+  }
 })
+
+
+// Volumen
+const barraVolumen = document.querySelector('.vol-barra-progreso');
+const volumenActual = barraVolumen.querySelector('.volumen-actual');
+
+barraVolumen.addEventListener('mousedown', (e) => {
+  let offSetXClick = e.offsetX; // Determina el ancho del volumen actual según donde se de el click.
+  const anchoBarraVolumen = barraVolumen.clientWidth; // Determina el ancho total del volumen.
+  audioPrincipal.volume = offSetXClick / anchoBarraVolumen;
+  let barraVolumenActual = (offSetXClick / anchoBarraVolumen) * 100;
+  volumenActual.style.width = `${barraVolumenActual}%`;
+})
+
+// Inyectando canciones a playlist.
+const listaCanciones = document.querySelector('.lista-canciones');
+let numero = document.createElement('td');
+
+numero.setAttribute('id', 'numero');
+listaCanciones.append(numero)
+
+console.log(numero);

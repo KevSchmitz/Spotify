@@ -10,6 +10,18 @@ class Cancion {
   }
 }
 
+class Playlist {
+  constructor(numero, imagen, nombre, artista, album, date, duracion) {
+    this.numero = numero;
+    this.imagen = imagen;
+    this.nombre = nombre;
+    this.artista = artista;
+    this.album = album;
+    this.date = date;
+    this.duracion = duracion;
+  }
+}
+
 function cargarCancion(numeroIndice) {
   nombreCancion.textContent = canciones[`${numeroIndice}`].nombre;
   artistaCancion.textContent = canciones[`${numeroIndice}`].artista;
