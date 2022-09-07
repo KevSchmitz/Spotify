@@ -378,6 +378,8 @@ html {
     right: -5px;
 }
 
+/* Volumen */
+
 .barra-volumen {
     display: grid;
 }
@@ -419,6 +421,8 @@ html {
     transform: translateY(-50%);
     right: -5px;
 }
+
+/* Miscelaneos */
 
 .contenedor-miscelaneos {
     display: flex;
@@ -503,4 +507,35 @@ html {
 .cancion-contenedor .cancion-album {
     width: 4rem;
     filter: drop-shadow(0 0 5 black);
+}
+
+/* Lista de Reproducción */
+
+.tabla-contenedor {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.tabla-head-fila {
+    display: grid;
+    grid-template-columns: 0.5fr 3.5fr 3fr 2fr 1fr;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.2);
+}
+
+.tabla-datos-fila {
+    display: grid;
+    grid-template-columns: 0.5fr 3.5fr 3fr 2fr 1fr;
+    padding: 0.5rem 0;
+    align-items: center;
+}
+
+.datos-titulo {
+    display: flex;
+    gap: 1rem;
+}
+
+.titulo-imagen {
+    width: 2.5rem;
+    height: 2.5rem;
 }

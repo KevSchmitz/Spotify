@@ -11,7 +11,10 @@ const canciones = [
 ];
 
 const playlists = [
-  new Playlist(1, `${canciones[1].imagen}`, `${canciones[1].nombre}`, `${canciones[1].artista}`, `${canciones[1].album}`, 'Sep 05, 2022', `${canciones[1].duracion}`)
+  new Playlist(1, `${canciones[1].imagen}`, `${canciones[1].nombre}`, `${canciones[1].artista}`, `${canciones[1].album}`, 'Sep 05, 2022', `${canciones[1].duracion}`),
+
+  new Playlist(2, `${canciones[2].imagen}`, `${canciones[2].nombre}`, `${canciones[2].artista}`, `${canciones[2].album}`, 'Sep 05, 2022', `${canciones[2].duracion}`),
+
+  new Playlist(3, `${canciones[3].imagen}`, `${canciones[3].nombre}`, `${canciones[3].artista}`, `${canciones[3].album}`, 'Sep 05, 2022', `${canciones[3].duracion}`)
 ]
 
-console.log(playlists)

@@ -152,10 +152,61 @@ barraVolumen.addEventListener('mousedown', (e) => {
 })
 
 // Inyectando canciones a playlist.
-const listaCanciones = document.querySelector('.lista-canciones');
-let numero = document.createElement('td');
+const tablaContenedor = document.querySelector('.tabla-contenedor');
 
-numero.setAttribute('id', 'numero');
-listaCanciones.append(numero)
+for (let i = 0; i < playlists.length; i++) {
 
-console.log(numero);
+  let fila = document.createElement('div');
+  fila.classList.add('tabla-datos-fila');
+  tablaContenedor.append(fila);
+
+  let numero = document.createElement('div');
+  numero.classList.add('datos-numero');
+  numero.textContent = playlists[i].numero;
+  fila.append(numero);
+
+  let titulo = document.createElement('div');
+  titulo.classList.add('datos-titulo');
+  fila.append(titulo);
+
+  let imagenTitulo = document.createElement('img');
+  imagenTitulo.classList.add('titulo-imagen');
+  titulo.append(imagenTitulo);
+  imagenTitulo.src = `img/${playlists[i].imagen}.jpg`
+
+  let cancionTitulo = document.createElement('div');
+  cancionTitulo.classList.add('titulo-cancion');
+  titulo.append(cancionTitulo);
+
+  let nombreTitulo = document.createElement('div');
+  nombreTitulo.classList.add('titulo-nombre');
+  cancionTitulo.append(nombreTitulo);
+  nombreTitulo.textContent = playlists[i].nombre;
+
+  let artistaTitulo = document.createElement('div');
+  artistaTitulo.classList.add('titulo-artista');
+  cancionTitulo.append(artistaTitulo);
+  artistaTitulo.textContent = playlists[i].artista;
+
+  let album = document.createElement('div');
+  album.classList.add('datos-album');
+  album.textContent = playlists[i].album;
+  fila.append(album);
+
+  let date = document.createElement('div');
+  date.classList.add('datos-date');
+  date.textContent = playlists[i].date;
+  fila.append(date);
+
+  let duracion = document.createElement('div');
+  duracion.classList.add('datos-duracion');
+  duracion.textContent = playlists[i].duracion;
+  fila.append(duracion);
+}
+
+
+
+
+
+
+
