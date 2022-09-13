@@ -156,57 +156,22 @@ const tablaContenedor = document.querySelector('.tabla-contenedor');
 
 for (let i = 0; i < playlists.length; i++) {
 
-  let fila = document.createElement('div');
-  fila.classList.add('tabla-datos-fila');
-  tablaContenedor.append(fila);
+  let crearFila = document.createElement('div');
+  crearFila.classList.add('tabla-datos-fila');
+  crearFila.classList.add(`fila${i}`);
+  tablaContenedor.append(crearFila);
 
-  let numero = document.createElement('div');
-  numero.classList.add('datos-numero');
-  numero.textContent = playlists[i].numero;
-  fila.append(numero);
-
-  let titulo = document.createElement('div');
-  titulo.classList.add('datos-titulo');
-  fila.append(titulo);
-
-  let imagenTitulo = document.createElement('img');
-  imagenTitulo.classList.add('titulo-imagen');
-  titulo.append(imagenTitulo);
-  imagenTitulo.src = `img/${playlists[i].imagen}.jpg`
-
-  let cancionTitulo = document.createElement('div');
-  cancionTitulo.classList.add('titulo-cancion');
-  titulo.append(cancionTitulo);
-
-  let nombreTitulo = document.createElement('div');
-  nombreTitulo.classList.add('titulo-nombre');
-  cancionTitulo.append(nombreTitulo);
-  nombreTitulo.textContent = playlists[i].nombre;
-
-  let artistaTitulo = document.createElement('div');
-  artistaTitulo.classList.add('titulo-artista');
-  cancionTitulo.append(artistaTitulo);
-  artistaTitulo.textContent = playlists[i].artista;
-
-  let album = document.createElement('div');
-  album.classList.add('datos-album');
-  album.textContent = playlists[i].album;
-  fila.append(album);
-
-  let date = document.createElement('div');
-  date.classList.add('datos-date');
-  date.textContent = playlists[i].date;
-  fila.append(date);
-
-  let duracion = document.createElement('div');
-  duracion.classList.add('datos-duracion');
-  duracion.textContent = playlists[i].duracion;
-  fila.append(duracion);
+  let seleccionFila = document.querySelector(`.fila${i}`);
+  seleccionFila.innerHTML =
+    `<div class="datos-numero">${playlists[i].numero}</div>
+  <div class="datos-titulo">
+  <img src="img/${playlists[i].imagen}.jpg" class="titulo-imagen"></img>
+  <div class="titulo-cancion">
+  <div class="datos-nombre">${playlists[i].nombre}</div>
+  <div class="datos-artista">${playlists[i].artista}</div>
+  </div>
+  </div>
+  <div class="datos-album">${playlists[i].album}</div>
+  <div class="datos-date">${playlists[i].date}</div>
+  <div class="datos-duracion">${playlists[i].duracion}</div>`;
 }
-
-
-
-
-
-
-

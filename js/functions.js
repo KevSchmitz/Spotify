@@ -54,3 +54,15 @@ function adelantarCancion() {
   cargarCancion(indiceArreglo);
   reproducirCancion();
 }
+
+// function crearModal() {
+//   const seleccionModal = document.querySelector('.modal-contenedor');
+//   const crearModal = document.createElement('div');
+//   crearModal.classList.add('modal');
+//   crearModal.textContent = 'Hola';
+//   seleccionModal.append(crearModal);
+//   console.log(seleccionModal);
+// }
+
+// crearModal();
+
