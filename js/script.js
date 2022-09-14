@@ -76,7 +76,7 @@ botonSiguiente.addEventListener('click', () => {
 const botonRepetir = document.querySelector('#repetir');
 let tomarTexto = botonRepetir.textContent; // Tomar el texto del icono.
 tomarTexto = botonRepetir.textContent = 'repetir'; // Colocando el texto repetir.
-console.log(tomarTexto);
+
 botonRepetir.addEventListener('click', () => {
   switch (tomarTexto) {
     case 'repetir': // Si el texto del icono es repetir cambiar a repetir_una
@@ -175,3 +175,4 @@ for (let i = 0; i < playlists.length; i++) {
   <div class="datos-date">${playlists[i].date}</div>
   <div class="datos-duracion">${playlists[i].duracion}</div>`;
 }
+

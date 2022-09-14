@@ -13,8 +13,7 @@ html {
 
 .triple {
     display: grid;
-    grid-template-columns: 0.8fr 4fr 0.8fr;
-    /* gap: 0.5rem; */
+    grid-template-columns: 0.8fr 4.8fr;
     height: auto;
 }
 
@@ -157,6 +156,7 @@ html {
 
 .header-contenedor {
     display: flex;
+    position: relative;
     justify-content: space-between;
     width: 90%;
     height: 4rem;
@@ -191,6 +191,26 @@ html {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10rem;
     height: 2.2rem;
+    position: relative;
+}
+
+.logout-hidden {
+    display: none;
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #1DB954;
+    border: none;
+    width: 6rem;
+    height: 2rem;
+    right: 0;
+    bottom: -3rem;
+    cursor: pointer;
+    border-radius: 2rem;
 }
 
 .header-perfil:hover {
@@ -555,8 +575,8 @@ body {
 
 .modal-contenedor {
     margin: 10rem auto;
-    width: 50rem;
-    height: 60%;
+    width: 25rem;
+    height: 26%;
     background-color: #282828;
     border-radius: 2rem;
     padding: 2rem;

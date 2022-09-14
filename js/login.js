@@ -1,3 +1,5 @@
+alert('Puede ingresar con cualquier Username y Password')
+
 let token = localStorage.getItem('token');
 let login = document.querySelector('#submit');
 
@@ -24,8 +26,9 @@ function generarToken(username, password) {
 
 function existeToken() {
     if (localStorage.getItem('token') !== null) {
-        return true
+        return true;
     } else {
         return false;
     }
 }
+
