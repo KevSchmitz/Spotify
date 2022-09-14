@@ -1,4 +1,4 @@
-class Cancion {
+class Song {
   constructor(id, nombre, artista, album, imagen, duracion, src) {
     this.id = id;
     this.nombre = nombre;
@@ -10,7 +10,7 @@ class Cancion {
   }
 }
 
-class Playlist {
+class Cancion {
   constructor(numero, imagen, nombre, artista, album, date, duracion) {
     this.numero = numero;
     this.imagen = imagen;
@@ -22,11 +22,18 @@ class Playlist {
   }
 }
 
+class Playlist {
+  constructor(nombre, canciones) {
+    this.nombre = nombre;
+    this.canciones = canciones;
+  }
+}
+
 function cargarCancion(numeroIndice) {
-  nombreCancion.textContent = canciones[`${numeroIndice}`].nombre;
-  artistaCancion.textContent = canciones[`${numeroIndice}`].artista;
-  imagenCancion.src = `img/${canciones[numeroIndice].imagen}.jpg`;
-  audioPrincipal.src = `songs/${canciones[numeroIndice].src}.mp3`;
+  nombreCancion.textContent = songs[`${numeroIndice}`].nombre;
+  artistaCancion.textContent = songs[`${numeroIndice}`].artista;
+  imagenCancion.src = `img/${songs[numeroIndice].imagen}.jpg`;
+  audioPrincipal.src = `songs/${songs[numeroIndice].src}.mp3`;
 }
 
 function reproducirCancion() {
@@ -34,23 +41,23 @@ function reproducirCancion() {
   botonPlayPause.src = 'iconosweb/reproductor/pausa.png'
   audioPrincipal.play();
 }
+
 function pausarCancion() {
   cancionContenedor.classList.remove('pausado');
   botonPlayPause.src = 'iconosweb/reproductor/jugar.png'
   audioPrincipal.pause();
 }
-function atrasCancion() {
 
+function atrasCancion() {
   indiceArreglo--;
-  indiceArreglo < 0 ? indiceArreglo = canciones.length - 1 : indiceArreglo = indiceArreglo;
+  indiceArreglo < 0 ? indiceArreglo = songs.length - 1 : indiceArreglo = indiceArreglo;
   cargarCancion(indiceArreglo);
   reproducirCancion();
 }
 
 function adelantarCancion() {
-
   indiceArreglo++;
-  indiceArreglo > canciones.length - 1 ? indiceArreglo = 0 : indiceArreglo = indiceArreglo;
+  indiceArreglo > songs.length - 1 ? indiceArreglo = 0 : indiceArreglo = indiceArreglo;
   cargarCancion(indiceArreglo);
   reproducirCancion();
 }

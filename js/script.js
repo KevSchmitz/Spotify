@@ -132,7 +132,7 @@ botonAleatorio.addEventListener('click', () => {
 audioPrincipal.addEventListener('ended', () => {
   if (tomarTexto2 == 'encendido') {
     console.log('está encendido el shuffle');
-    let indiceShuffle = Math.floor(Math.random() * canciones.length);
+    let indiceShuffle = Math.floor(Math.random() * songs.length);
     cargarCancion(indiceShuffle);
     reproducirCancion();
   }
@@ -151,10 +151,12 @@ barraVolumen.addEventListener('mousedown', (e) => {
   volumenActual.style.width = `${barraVolumenActual}%`;
 })
 
+
+
 // Inyectando canciones a playlist.
 const tablaContenedor = document.querySelector('.tabla-contenedor');
 
-for (let i = 0; i < playlists.length; i++) {
+for (let i = 0; i < playlists[0].canciones.length; i++) {
 
   let crearFila = document.createElement('div');
   crearFila.classList.add('tabla-datos-fila');
@@ -163,16 +165,17 @@ for (let i = 0; i < playlists.length; i++) {
 
   let seleccionFila = document.querySelector(`.fila${i}`);
   seleccionFila.innerHTML =
-    `<div class="datos-numero">${playlists[i].numero}</div>
+    `<div class="datos-numero">${i + 1}</div>
   <div class="datos-titulo">
-  <img src="img/${playlists[i].imagen}.jpg" class="titulo-imagen"></img>
+  <img src="img/${playlists[0].canciones[i].imagen}.jpg" class="titulo-imagen"></img>
   <div class="titulo-cancion">
-  <div class="datos-nombre">${playlists[i].nombre}</div>
-  <div class="datos-artista">${playlists[i].artista}</div>
+  <div class="datos-nombre">${playlists[0].canciones[i].nombre}</div>
+  <div class="datos-artista">${playlists[0].canciones[i].artista}</div>
   </div>
   </div>
-  <div class="datos-album">${playlists[i].album}</div>
-  <div class="datos-date">${playlists[i].date}</div>
-  <div class="datos-duracion">${playlists[i].duracion}</div>`;
+  <div class="datos-album">${playlists[0].canciones[i].album}</div>
+  <div class="datos-date">${playlists[0].canciones[i].date}</div>
+  <div class="datos-duracion">${playlists[0].canciones[i].duracion}</div>`;
 }
+
 
