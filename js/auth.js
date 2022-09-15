@@ -17,7 +17,7 @@ const contenedorPerfil = document.querySelector('.header-contenedor')
 
 let crearDiv = document.createElement('div');
 crearDiv.classList = 'logout-hidden';
-console.log(crearDiv)
+
 crearDiv.textContent = 'Log Out';
 contenedorPerfil.append(crearDiv);
 

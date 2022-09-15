@@ -560,30 +560,26 @@ html {
     height: 2.5rem;
 }
 
-/* MODAL */
+/* LOGIN */
 
 body {
     position: relative;
 }
 
-.modal-fondo {
+.login-fondo {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: #181818
 }
 
-.modal-contenedor {
+.login-contenedor {
     margin: 10rem auto;
     width: 25rem;
     height: 26%;
     background-color: #282828;
     border-radius: 2rem;
     padding: 2rem;
-}
-
-.modal {
-    color: white;
 }
 
 .hidden {
@@ -607,12 +603,88 @@ body {
     padding: 0.5rem;
 }
 
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
 #submit {
     position: absolute;
-    background-color: #1DB954;
-    border: none;
-    width: 6rem;
     right: 0;
+    width: 6rem;
+    border: none;
     bottom: -4rem;
     cursor: pointer;
+    background-color: #1DB954;
+}
+
+
+/* MODAL  */
+
+.modal-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.9);
+    top: 0%;
+    left: 0%;
+}
+
+.modal-contenedor {
+    margin: 10rem auto;
+    width: 50rem;
+    height: 50%;
+    background-color: #282828;
+    border-radius: 2rem;
+    padding: 5rem;
+}
+
+.modal-contenedor h1 {
+    font-size: 2.5rem;
+}
+
+.modal-contenedor label {
+    font-size: 1.4rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* CREAR PLAYLIST */
+
+
+.botones {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9.8rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 2rem;
+
+}
+
+.verde {
+    background-color: #1DB954;
+}
+
+.negro {
+    background-color: white;
+    color: black;
+}
+
+#playlist-nombre {
+    margin-top: 1rem;
+    border-radius: 2rem;
+    height: 3rem;
+    padding: 0 1rem;
+    font-size: 1.4rem;
 }
