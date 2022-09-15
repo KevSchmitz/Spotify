@@ -61,3 +61,12 @@ function adelantarCancion() {
   cargarCancion(indiceArreglo);
   reproducirCancion();
 }
+
+const modal = document.querySelector('.modal-fondo');
+function cerrarModal() {
+  modal.classList.add('hidden');
+}
+
+function crearPlaylist() {
+  modal.classList.remove('hidden');
+}

@@ -178,4 +178,10 @@ for (let i = 0; i < playlists[0].canciones.length; i++) {
   <div class="datos-duracion">${playlists[0].canciones[i].duracion}</div>`;
 }
 
+// CERRAR MODAL DE CREACION DE PLAYLIST
 
+const cerrarNuevaPlaylist = document.querySelector('.cerrar-modal');
+cerrarNuevaPlaylist.addEventListener('click', cerrarModal);
+
+const crearNuevaPlaylist = document.querySelector('#agregar-playlist');
+crearNuevaPlaylist.addEventListener('click', crearPlaylist);
