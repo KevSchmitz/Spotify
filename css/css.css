@@ -677,8 +677,7 @@ body {
 }
 
 .negro {
-    background-color: white;
-    color: black;
+    border: 2px solid #1DB954;
 }
 
 #playlist-nombre {

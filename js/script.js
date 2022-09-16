@@ -185,3 +185,9 @@ cerrarNuevaPlaylist.addEventListener('click', cerrarModal);
 
 const crearNuevaPlaylist = document.querySelector('#agregar-playlist');
 crearNuevaPlaylist.addEventListener('click', crearPlaylist);
+
+// CREAR PLAYLIST.
+const agregarPlaylist = document.querySelector('.guardar-modal');
+agregarPlaylist.addEventListener('click', guardarPlaylist);
+
+// INYECTANDO LISTA DE REPRODUCCION.

@@ -11,8 +11,8 @@ class Song {
 }
 
 class Cancion {
-  constructor(numero, imagen, nombre, artista, album, date, duracion) {
-    this.numero = numero;
+  constructor(id, imagen, nombre, artista, album, date, duracion) {
+    this.id = id;
     this.imagen = imagen;
     this.nombre = nombre;
     this.artista = artista;
