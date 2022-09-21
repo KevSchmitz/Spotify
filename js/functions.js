@@ -1,3 +1,5 @@
+// CLASES
+
 class Song {
   constructor(id, nombre, artista, album, imagen, duracion, src) {
     this.id = id;
@@ -23,11 +25,14 @@ class Cancion {
 }
 
 class Playlist {
-  constructor(nombre, canciones) {
+  constructor(id, nombre, canciones) {
+    this.id = id;
     this.nombre = nombre;
     this.canciones = canciones;
   }
 }
+
+//FUNCIONES REPRODUCTOR
 
 function cargarCancion(numeroIndice) {
   nombreCancion.textContent = songs[`${numeroIndice}`].nombre;
@@ -62,11 +67,25 @@ function adelantarCancion() {
   reproducirCancion();
 }
 
+//PLAYLISTS
+
 const modal = document.querySelector('.modal-fondo');
+
 function cerrarModal() {
   modal.classList.add('hidden');
 }
 
-function crearPlaylist() {
+function mostrarModal() {
   modal.classList.remove('hidden');
+}
+
+//FAVORITOS
+
+const favoritosModal = document.querySelector('.playlist-modal-fondo');
+
+function cerrarModalFavorito() {
+  favoritosModal.classList.add('hidden');
+}
+function mostrarModalFavorito() {
+  favoritosModal.classList.remove('hidden');
 }

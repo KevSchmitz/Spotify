@@ -687,3 +687,22 @@ body {
     padding: 0 1rem;
     font-size: 1.4rem;
 }
+
+.duracion-like {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.datos-like {
+    width: 1rem;
+    filter: invert(58%) sepia(57%) saturate(2616%) hue-rotate(98deg) brightness(96%) contrast(77%);
+}
+
+.playlist-modal-fondo {
+    position: absolute;
+    width: 75%;
+    height: 80%;
+    background-color: #181818;
+    top: 10%;
+    left: 14.5%;
+}
