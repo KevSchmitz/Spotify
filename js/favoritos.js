@@ -12,6 +12,13 @@ function agregarFavoritos(event) {
     favoritos.push(nuevaCancion);
 
     actualizarFavoritos();
+    Toastify({
+        text: "Se agregó a favoritos",
+        className: "info",
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+    }).showToast();
 }
 
 
@@ -31,17 +38,17 @@ function actualizarFavoritos() {
         seleccionFila.innerHTML = `
                 <div class="datos-numero">${cancion.id}</div>
                 <div class="datos-titulo">
-                <img src="${cancion.imagen}" class="titulo-imagen"></img>
-                <div class="titulo-cancion">
-                <div class="datos-nombre">${cancion.nombre}</div>
-                <div class="datos-artista">${cancion.artista}</div>
-                </div>
+                    <img src="${cancion.imagen}" class="titulo-imagen"></img>
+                    <div class="titulo-cancion">
+                        <div class="datos-nombre">${cancion.nombre}</div>
+                        <div class="datos-artista">${cancion.artista}</div>
+                    </div>
                 </div>
                 <div class="datos-album">${cancion.album}</div>
                 <div class="datos-date">${cancion.date}</div>
                 <div class="duracion-like">
-                <img src="iconosweb/corazon.png" class="datos-like" id="like_${favoritos.length}" onclick="agregarFavoritos(event)"></img>
-                <div class="datos-duracion">${cancion.duracion}</div>
+                    <img src="iconosweb/corazon.png" class="datos-like" id="like_${favoritos.length}" onclick="agregarFavoritos(event)"></img>
+                    <div class="datos-duracion">${cancion.duracion}</div>
                 </div>`;
     }
     )

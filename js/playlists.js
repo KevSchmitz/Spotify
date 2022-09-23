@@ -18,6 +18,15 @@ function guardarPlaylist() {
     formulario.nombre.value = '';
 
     cerrarModal();
+
+    Toastify({
+        text: "Se creó lista de reproducción",
+        className: "info",
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+    }).showToast();
+
 }
 
 const listaReproduccion = document.querySelector('.lista-reproduccion');
