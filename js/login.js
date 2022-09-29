@@ -13,6 +13,7 @@ login.addEventListener('click', (e) => {
     let valorUsername = formulario.username.value;
     let valorPassword = formulario.password.value;
     const token = generarToken(valorUsername, valorPassword);
+
     localStorage.setItem('token', token);
     existeToken();
     if (existeToken()) {

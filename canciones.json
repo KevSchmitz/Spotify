@@ -1,0 +1,47 @@
+[
+    {
+        "id": "1",
+        "nombre": "Titi me preguntó",
+        "artista": "Bad Bunny",
+        "album": "Verano sin ti",
+        "imagen": "verano sin ti",
+        "duracion": "4:50",
+        "src": "Bad Bunny - Tití Me Preguntó (Official Video) - Un Verano Sin Ti"
+    },
+    {
+        "id": "2",
+        "nombre": "Yo no soy celoso",
+        "artista": "Bad Bunny",
+        "album": "Verano sin ti",
+        "imagen": "verano sin ti",
+        "duracion": "3:50",
+        "src": "Bad Bunny - Yo No Soy Celoso (360° Visualizer) - Un Verano Sin Ti"
+    },
+    {
+        "id": "3",
+        "nombre": "Yonaguni",
+        "artista": "Bad Bunny",
+        "album": "Yonaguni",
+        "imagen": "yonaguni",
+        "duracion": "3:28",
+        "src": "Bad Bunny - Yonaguni (Video Oficial)"
+    },
+    {
+        "id": "4",
+        "nombre": "Me porto bonito",
+        "artista": "Bad Bunny",
+        "album": "Verano sin ti",
+        "imagen": "verano sin ti",
+        "duracion": "3:11",
+        "src": "Bad Bunny (ft. Chencho Corleone) - Me Porto Bonito (Official Video) - Un Verano Sin Ti"
+    },
+    {
+        "id": "5",
+        "nombre": "Ojitos lindos",
+        "artista": "Bad Bunny",
+        "album": "Verano sin ti",
+        "imagen": "verano sin ti",
+        "duracion": "4:18",
+        "src": "Bad Bunny, Bomba Estéreo - Ojitos Lindos (Letra-Lyrics)"
+    }
+]

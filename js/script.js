@@ -153,32 +153,32 @@ barraVolumen.addEventListener('mousedown', (e) => {
 
 
 // Inyectando canciones a playlist.
-const tablaContenedor = document.querySelector('.tabla-contenedor');
 
-for (let i = 0; i < playlists[0].canciones.length; i++) {
 
-  let crearFila = document.createElement('div');
-  crearFila.classList.add('tabla-datos-fila');
-  crearFila.classList.add(`fila${i}`);
-  tablaContenedor.append(crearFila);
+// for (let i = 0; i < playlists[0].canciones.length; i++) {
 
-  let seleccionFila = document.querySelector(`.fila${i}`);
-  seleccionFila.innerHTML =
-    `<div class="datos-numero">${i + 1}</div>
-  <div class="datos-titulo">
-    <img src="img/${playlists[0].canciones[i].imagen}.jpg" class="titulo-imagen"></img>
-    <div class="titulo-cancion">
-      <div class="datos-nombre">${playlists[0].canciones[i].nombre}</div>
-      <div class="datos-artista">${playlists[0].canciones[i].artista}</div>
-    </div>
-  </div>
-  <div class="datos-album">${playlists[0].canciones[i].album}</div>
-  <div class="datos-date">${playlists[0].canciones[i].date}</div>
-  <div class="duracion-like">
-    <img src="iconosweb/corazon.png" class="datos-like" id="like_${i}" onclick="agregarFavoritos(event)"></img>
-    <div class="datos-duracion">${playlists[0].canciones[i].duracion}</div>
-  </div>`;
-}
+//   let crearFila = document.createElement('div');
+//   crearFila.classList.add('tabla-datos-fila');
+//   crearFila.classList.add(`fila${i}`);
+//   tablaContenedor.append(crearFila);
+
+//   let seleccionFila = document.querySelector(`.fila${i}`);
+//   seleccionFila.innerHTML =
+//     `<div class="datos-numero">${i + 1}</div>
+//   <div class="datos-titulo">
+//     <img src="img/${playlists[0].canciones[i].imagen}.jpg" class="titulo-imagen"></img>
+//     <div class="titulo-cancion">
+//       <div class="datos-nombre">${playlists[0].canciones[i].nombre}</div>
+//       <div class="datos-artista">${playlists[0].canciones[i].artista}</div>
+//     </div>
+//   </div>
+//   <div class="datos-album">${playlists[0].canciones[i].album}</div>
+//   <div class="datos-date">${playlists[0].canciones[i].date}</div>
+//   <div class="duracion-like">
+//     <img src="iconosweb/corazon.png" class="datos-like" id="like_${i}" onclick="agregarFavoritos(event)"></img>
+//     <div class="datos-duracion">${playlists[0].canciones[i].duracion}</div>
+//   </div>`;
+// }
 
 // CERRAR MODAL DE CREACION DE PLAYLIST
 const cerrarNuevaPlaylist = document.querySelector('.cerrar-modal');
