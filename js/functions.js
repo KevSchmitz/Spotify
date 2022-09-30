@@ -67,6 +67,11 @@ function adelantarCancion() {
   reproducirCancion();
 }
 
+function reproducirSeleccion(indiceArreglo) {
+  cargarCancion(indiceArreglo);
+  reproducirCancion();
+}
+
 //PLAYLISTS
 
 const modal = document.querySelector('.modal-fondo');

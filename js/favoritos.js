@@ -25,38 +25,30 @@ function agregarFavoritos(event) {
     }).showToast();
 }
 
-
-const playlistFavoritos = document.querySelector('.playlist-favoritos');
-
 function actualizarFavoritos() {
-    playlistFavoritos.innerHTML = '';
 
+    let html = '';
     favoritos.forEach(cancion => {
-        let crearFila = document.createElement('div');
-        crearFila.classList.add('tabla-datos-fila');
-        crearFila.classList.add(`fila-favoritos${cancion.id}`);
-
-        playlistFavoritos.append(crearFila);
-
-        let seleccionFila = document.querySelector(`.fila-favoritos${cancion.id}`);
-        seleccionFila.innerHTML = `
+        html += `
+            <div class="tabla-datos-fila fila-favoritos${cancion.id} ondblclick="cargarCancion(${cancion.id}-1)">
                 <div class="datos-numero">${cancion.id}</div>
                 <div class="datos-titulo">
-                <img src="${cancion.imagen}" class="titulo-imagen"></img>
-                <div class="titulo-cancion">
-                <div class="datos-nombre">${cancion.nombre}</div>
-                <div class="datos-artista">${cancion.artista}</div>
-                </div>
+                    <img src="${cancion.imagen}" class="titulo-imagen"></img>
+                    <div class="titulo-cancion">
+                        <div class="datos-nombre">${cancion.nombre}</div>
+                        <div class="datos-artista">${cancion.artista}</div>
+                    </div>
                 </div>
                 <div class="datos-album">${cancion.album}</div>
                 <div class="datos-date">${cancion.date}</div>
                 <div class="duracion-like">
-                <img src="iconosweb/corazon.png" class="datos-like" id="like_${cancion.id}" onclick="agregarFavoritos(event)"></img>
-                <div class="datos-duracion">${cancion.duracion}</div>
-                </div>`;
+                    <img src="iconosweb/corazon.png" class="datos-like" id="like_${cancion.id}" onclick="agregarFavoritos(event)"></img>
+                    <div class="datos-duracion">${cancion.duracion}</div>
+                </div>
+            </div>`;
 
-    }
-    )
+    })
+    document.querySelector('.playlist-favoritos').innerHTML = html;
 }
 
 // ALMACENAR FAVORITOS EN STORAGE

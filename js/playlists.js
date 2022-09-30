@@ -10,22 +10,22 @@ fetch('canciones.json')
     .then(json => {
         console.log(json);
         let html = '';
-        json.forEach(elemento => {
+        json.forEach(cancion => {
             html += `
-            <div class="tabla-datos-fila fila${elemento.id}">
-            <div class="datos-numero">${elemento.id}</div>
+            <div class="tabla-datos-fila fila${cancion.id}" ondblclick="reproducirSeleccion(${cancion.id}-1)">
+            <div class="datos-numero">${cancion.id}</div>
             <div class="datos-titulo">
-              <img src="img/${elemento.imagen}.jpg" class="titulo-imagen"></img>
+              <img src="img/${cancion.imagen}.jpg" class="titulo-imagen"></img>
               <div class="titulo-cancion">
-                <div class="datos-nombre">${elemento.nombre}</div>
-                <div class="datos-artista">${elemento.artista}</div>
+                <div class="datos-nombre">${cancion.nombre}</div>
+                <div class="datos-artista">${cancion.artista}</div>
               </div>
             </div>
-            <div class="datos-album">${elemento.album}</div>
-            <div class="datos-date">${elemento.date}</div>
+            <div class="datos-album">${cancion.album}</div>
+            <div class="datos-date">${cancion.date}</div>
             <div class="duracion-like">
-              <img src="iconosweb/corazon.png" class="datos-like" id="like_${elemento.id}" onclick="agregarFavoritos(event)"></img>
-              <div class="datos-duracion">${elemento.duracion}</div>
+              <img src="iconosweb/corazon.png" class="datos-like" id="like_${cancion.id}" onclick="agregarFavoritos(event)"></img>
+              <div class="datos-duracion">${cancion.duracion}</div>
             </div>
             </div>
           `

@@ -264,6 +264,11 @@ html {
     gap: 0.3rem;
 }
 
+.playlist-creador {
+    text-decoration: none;
+    color: white;
+}
+
 .main {
     overflow-y: scroll;
     background: rgb(18, 18, 18);
