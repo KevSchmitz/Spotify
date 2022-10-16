@@ -1,44 +1,10 @@
-// CLASES
+/* REPRODUCTOR */
 
-class Song {
-  constructor(id, nombre, artista, album, imagen, duracion, src) {
-    this.id = id;
-    this.nombre = nombre;
-    this.artista = artista;
-    this.album = album;
-    this.imagen = imagen;
-    this.duracion = duracion;
-    this.src = src;
-  }
-}
-
-class Cancion {
-  constructor(id, imagen, nombre, artista, album, date, duracion) {
-    this.id = id;
-    this.imagen = imagen;
-    this.nombre = nombre;
-    this.artista = artista;
-    this.album = album;
-    this.date = date;
-    this.duracion = duracion;
-  }
-}
-
-class Playlist {
-  constructor(id, nombre, canciones) {
-    this.id = id;
-    this.nombre = nombre;
-    this.canciones = canciones;
-  }
-}
-
-//FUNCIONES REPRODUCTOR
-
-function cargarCancion(numeroIndice) {
-  nombreCancion.textContent = songs[`${numeroIndice}`].nombre;
-  artistaCancion.textContent = songs[`${numeroIndice}`].artista;
-  imagenCancion.src = `img/${songs[numeroIndice].imagen}.jpg`;
-  audioPrincipal.src = `songs/${songs[numeroIndice].src}.mp3`;
+function cargarCancion(playlistIndice, cancionIndice) {
+  nombreCancion.textContent = playlists[playlistIndice].canciones[cancionIndice].nombre;
+  artistaCancion.textContent = playlists[playlistIndice].canciones[cancionIndice].artista;
+  imagenCancion.src = `img/${playlists[playlistIndice].canciones[cancionIndice].imagen}.jpg`;
+  audioPrincipal.src = `songs/${playlists[playlistIndice].canciones[cancionIndice].src}.mp3`;
 }
 
 function reproducirCancion() {
@@ -53,44 +19,83 @@ function pausarCancion() {
   audioPrincipal.pause();
 }
 
-function atrasCancion() {
-  indiceArreglo--;
-  indiceArreglo < 0 ? indiceArreglo = songs.length - 1 : indiceArreglo = indiceArreglo;
-  cargarCancion(indiceArreglo);
+function atrasCancion(playlistIndice, cancionIndice) {
+  indiceCancion--;
+  indiceCancion < 0 ? indiceCancion = songs.length - 1 : indiceCancion = indiceCancion;
+  cancionIndice = indiceCancion
+  cargarCancion(playlistIndice, cancionIndice);
   reproducirCancion();
 }
 
-function adelantarCancion() {
-  indiceArreglo++;
-  indiceArreglo > songs.length - 1 ? indiceArreglo = 0 : indiceArreglo = indiceArreglo;
-  cargarCancion(indiceArreglo);
+function adelantarCancion(playlistIndice, cancionIndice) {
+  indiceCancion++;
+  indiceCancion > songs.length - 1 ? indiceCancion = 0 : indiceCancion = indiceCancion;
+  cancionIndice = indiceCancion
+  cargarCancion(playlistIndice, cancionIndice);
+  reproducirCancion();
+  // console.log(playlistIndice)
+}
+
+function reproducirSeleccion(playlistIndice, cancionIndice) {
+  indicePlaylist = playlistIndice;
+  indiceCancion = cancionIndice;
+  cargarCancion(playlistIndice, cancionIndice);
   reproducirCancion();
 }
 
-function reproducirSeleccion(indiceArreglo) {
-  cargarCancion(indiceArreglo);
-  reproducirCancion();
-}
+/* MODALS */
 
-//PLAYLISTS
+// Playlist.
 
-const modal = document.querySelector('.modal-fondo');
+const playlistModal = document.querySelector('.modal-fondo');
+const favoritosModal = document.querySelector('.playlist-modal-fondo');
 
-function cerrarModal() {
+function cerrarModal(modal) {
   modal.classList.add('hidden');
 }
 
-function mostrarModal() {
+function mostrarModal(modal) {
   modal.classList.remove('hidden');
 }
 
-//FAVORITOS
+function eliminarCancion() {
+  const filaFavoritos = event.target.parentNode.parentNode;
+  const numeroFila = filaFavoritos.firstElementChild.innerHTML;
+ console.dir(numeroFila)
 
-const favoritosModal = document.querySelector('.playlist-modal-fondo');
-
-function cerrarModalFavorito() {
-  favoritosModal.classList.add('hidden');
+  if (event.target.classList.contains('liked')) {
+    favoritos = favoritos.filter(cancion => cancion.id != numeroFila)
+    actualizarFavoritos();
+    agregarLocalStorage('favoritos', favoritos);
+    Toastify({
+      text: "Se eliminó de favoritos",
+      className: "info",
+      style: {
+          background: "linear-gradient(to right, #C20000, #FF6600)",
+      }
+  }).showToast();
+  } 
 }
-function mostrarModalFavorito() {
-  favoritosModal.classList.remove('hidden');
+
+/* LOCALSTORAGE */
+
+// Almacenar en LocalStorage
+function agregarLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+// Llamar de localStorage
+
+function traerLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+function mostrarMenu(event) {
+  event.preventDefault();
+  console.dir(event);
+  console.dir(event.target);
+  console.log(event);
+  console.log(event.target.innerHTML);
+  playlists = playlists.filter(playlist => playlist.nombre != event.target.innerHTML);
+  actualizarPlaylists();
 }

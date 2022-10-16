@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,7 +11,7 @@
   <link rel="stylesheet" href="css/utilidades.css" type="text/css">
   <link rel="stylesheet" href="css/normalize.css" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-  <title>Spotify</title>
+  <title>Spotifree</title>
 </head>
 
 <body class="body">
@@ -73,7 +72,9 @@
           <div class="espaciado"></div>
           <div class="lista-reproduccion">
             <div class="scrollbar"></div>
-            <div><a href="#">Coding Mode</a></div>
+            <div><a href="#" oncontextmenu="mostrarMenu(event)">Coding Mode</a></div>
+            <!-- INYECCION DE PLAYLIST -->
+
           </div>
 
         </article> <!-- Fin PLAYLIST  -->
@@ -97,6 +98,7 @@
         </div>
 
         <!-- HOME DE CANCIONES -->
+
         <section class="playlist">
           <div class="contenedor-playlist">
             <img src="img/album-cover.jpg">
@@ -106,7 +108,7 @@
               <p class="playlist-comentario">Dedicated to all the programmers out there.</p>
               <div class="playlist-misc">
                 <img class="playlist-imagen-usuario" src="">
-                <a class="playlist-creador" href="#">Spotify</a>
+                <a class="playlist-creador" href="#">Spotifree</a>
                 <p class="playlist-datos">- 200 likes - 20 songs, 1 hr 30min</p>
               </div>
             </div>
@@ -132,7 +134,37 @@
 
         <!-- LIKED SONGS -->
         <section class="playlist-modal-fondo hidden">
-          <div class="playlist-favoritos">
+
+          <div class="contenedor-playlist">
+            <img class="playlist-album"
+              src="https://i.pinimg.com/originals/07/74/a4/0774a492388967e2b5b6d65b95f3fd1a.png">
+            <div class="playlist-info">
+              <p class="playlist-privacidad">Private playlist</p>
+              <h1 class="playlist-titulo">Liked Songs</h1>
+              <p class="playlist-comentario">Don't miss out your favorite music.</p>
+              <div class="playlist-misc">
+                <img class="playlist-imagen-usuario" src="">
+                <a class="playlist-creador" href="#">Spotifree</a>
+                <p class="playlist-datos">- 200 likes - 20 songs, 1 hr 30min</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabla-contenedor">
+            <div class="tabla-head-fila">
+              <div class="tabla-head">#</div>
+              <div class="tabla-head">TITLE</div>
+              <div class="tabla-head">ALBUM</div>
+              <div class="tabla-head">DATE ADDED</div>
+              <div class="tabla-head">DURATION</div>
+            </div>
+
+            <!-- INYECCION DE CANCIONES -->
+            <div class="playlist-favoritos">
+
+            </div>
+
+            <div class="boton-cerrar">X</div>
 
           </div>
         </section> <!-- Fin LIKED SONGS -->
@@ -228,6 +260,7 @@
   </div>
 
 
+  <script src="js/classes.js"></script>
   <script src="js/functions.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="js/canciones.js"></script>
@@ -235,8 +268,6 @@
   <script src="js/favoritos.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/reproduccion.js"></script>
-
 </body>
 
 </html>

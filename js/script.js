@@ -1,14 +1,17 @@
+// Información canción.
 const cancionContenedor = document.querySelector('.cancion-contenedor');
 const nombreCancion = cancionContenedor.querySelector('.cancion-nombre a');
 const artistaCancion = cancionContenedor.querySelector('.cancion-artista a');
 const imagenCancion = cancionContenedor.querySelector('.cancion-album img');
 const audioPrincipal = cancionContenedor.querySelector('#audio-principal');
 
+// Botones reeproductor.
 const reproductor = document.querySelector('.reproductor');
 const botonPlayPause = reproductor.querySelector('.play-pause img');
 const botonAtras = reproductor.querySelector('#atras');
 const botonSiguiente = reproductor.querySelector('#siguiente');
 
+// Tiempo.
 const barraTiempo = document.querySelector('.barra-tiempo');
 const barraProgreso = document.querySelector('.barra-progreso');
 
@@ -50,10 +53,13 @@ barraProgreso.addEventListener('click', (e) => {
   audioPrincipal.currentTime = (offSetXClick / anchoBarra) * duracionCancion;
 })
 
-let indiceArreglo = 0;
+// Reproducción música.
+let indicePlaylist = 0;
+let indiceCancion = 0;
 
+// Al cargar la página carga los datos de la canción.
 window.addEventListener('load', () => {
-  cargarCancion(indiceArreglo);
+  cargarCancion(indicePlaylist, indiceCancion);
 })
 
 botonPlayPause.addEventListener('click', () => {
@@ -64,12 +70,12 @@ botonPlayPause.addEventListener('click', () => {
 
 // Para ir hacia la canción anterior.
 botonAtras.addEventListener('click', () => {
-  atrasCancion()
+  atrasCancion(indicePlaylist,indiceCancion)
 });
 
 // Para adelantar la canción.
 botonSiguiente.addEventListener('click', () => {
-  adelantarCancion();
+  adelantarCancion(indicePlaylist,indiceCancion);
 });
 
 // Para poner modo repetir canción.
@@ -83,13 +89,11 @@ botonRepetir.addEventListener('click', () => {
       tomarTexto = 'repetir_una'; // Si el texto es repetir_una
       botonRepetir.src = 'iconosweb/reproductor/repita-una-vez.png';
       document.querySelector('.control-icons:nth-child(5)').classList.add('opacidad');
-      console.log(tomarTexto);
       break;
     case 'repetir_una': // Si el texto del icono es repetir_una cambiar a repetir.
       tomarTexto = 'repetir'; // Si el texto es repetir_una
       botonRepetir.src = 'iconosweb/reproductor/repetir.png';
       document.querySelector('.control-icons:nth-child(5)').classList.remove('opacidad');
-      console.log(tomarTexto);
       break;
   }
 })
@@ -103,14 +107,14 @@ audioPrincipal.addEventListener('ended', () => {
       break;
     case 'repetir_una':
       audioPrincipal.duration = 0;
-      cargarCancion(indiceArreglo);
+      cargarCancion();
       reproducirCancion();
       break;
   }
 })
 
 
-// Para poner modo aleatorio.
+// Permite poner modo aleatorio.
 const botonAleatorio = document.querySelector('.control-icons:nth-child(1)');
 let tomarTexto2 = document.querySelector('#shuffle').textContent = 'apagado';
 
@@ -129,17 +133,17 @@ botonAleatorio.addEventListener('click', () => {
   }
 })
 
+// Permite activar el Shuffle.
 audioPrincipal.addEventListener('ended', () => {
   if (tomarTexto2 == 'encendido') {
-    console.log('está encendido el shuffle');
     let indiceShuffle = Math.floor(Math.random() * songs.length);
-    cargarCancion(indiceShuffle);
+    cargarCancion();
     reproducirCancion();
   }
 })
 
 
-// Volumen
+// Volumen.
 const barraVolumen = document.querySelector('.vol-barra-progreso');
 const volumenActual = barraVolumen.querySelector('.volumen-actual');
 
@@ -151,41 +155,16 @@ barraVolumen.addEventListener('mousedown', (e) => {
   volumenActual.style.width = `${barraVolumenActual}%`;
 })
 
-
-// Inyectando canciones a playlist.
-
-
-// for (let i = 0; i < playlists[0].canciones.length; i++) {
-
-//   let crearFila = document.createElement('div');
-//   crearFila.classList.add('tabla-datos-fila');
-//   crearFila.classList.add(`fila${i}`);
-//   tablaContenedor.append(crearFila);
-
-//   let seleccionFila = document.querySelector(`.fila${i}`);
-//   seleccionFila.innerHTML =
-//     `<div class="datos-numero">${i + 1}</div>
-//   <div class="datos-titulo">
-//     <img src="img/${playlists[0].canciones[i].imagen}.jpg" class="titulo-imagen"></img>
-//     <div class="titulo-cancion">
-//       <div class="datos-nombre">${playlists[0].canciones[i].nombre}</div>
-//       <div class="datos-artista">${playlists[0].canciones[i].artista}</div>
-//     </div>
-//   </div>
-//   <div class="datos-album">${playlists[0].canciones[i].album}</div>
-//   <div class="datos-date">${playlists[0].canciones[i].date}</div>
-//   <div class="duracion-like">
-//     <img src="iconosweb/corazon.png" class="datos-like" id="like_${i}" onclick="agregarFavoritos(event)"></img>
-//     <div class="datos-duracion">${playlists[0].canciones[i].duracion}</div>
-//   </div>`;
-// }
-
 // CERRAR MODAL DE CREACION DE PLAYLIST
 const cerrarNuevaPlaylist = document.querySelector('.cerrar-modal');
-cerrarNuevaPlaylist.addEventListener('click', cerrarModal);
+cerrarNuevaPlaylist.addEventListener('click', () => {
+  cerrarModal(playlistModal);
+});
 
 const crearNuevaPlaylist = document.querySelector('#agregar-playlist');
-crearNuevaPlaylist.addEventListener('click', mostrarModal);
+crearNuevaPlaylist.addEventListener('click', ()=>{
+  mostrarModal(playlistModal)
+});
 
 
 // CREAR PLAYLIST.
@@ -198,9 +177,16 @@ const modalFavoritos = document.querySelector('#favorites');
 modalFavoritos.addEventListener('click', () => {
 
   if (favoritosModal.classList[1] == 'hidden') {
-    mostrarModalFavorito();
+    mostrarModal(favoritosModal);
   } else if (favoritosModal.classList != 'hidden') {
-    cerrarModalFavorito();
+    cerrarModal(favoritosModal);
   }
 
 })
+
+botonCerrar.addEventListener('click', ()=>{
+  cerrarModal(favoritosModal)
+});
+ 
+// TEST
+

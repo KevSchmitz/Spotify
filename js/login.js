@@ -6,7 +6,6 @@ let login = document.querySelector('#submit');
 
 login.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(e);
     let formulario = document.querySelector('#login');
     console.dir(formulario)
 
