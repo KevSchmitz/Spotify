@@ -87,7 +87,7 @@ function actualizarPlaylists() {
 
     playlists.forEach(playlist => {
         const playlistHTML = document.createElement('div');
-        playlistHTML.innerHTML = `<a href="#" oncontextmenu="mostrarMenu(event)">${playlist.nombre}</a>`;
+        playlistHTML.innerHTML = `<a href="#" oncontextmenu="eliminarPlaylist(event)">${playlist.nombre}</a>`;
         listaReproduccion.append(playlistHTML);
     })
 }

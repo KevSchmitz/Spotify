@@ -123,7 +123,6 @@ botonAleatorio.addEventListener('click', () => {
     case 'apagado':
       botonAleatorio.classList.add('opacidad');
       tomarTexto2 = document.querySelector('#shuffle').textContent = 'encendido';
-      console.log('Cambiando a encendido');
       break;
 
     case 'encendido':

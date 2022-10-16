@@ -33,7 +33,6 @@ function adelantarCancion(playlistIndice, cancionIndice) {
   cancionIndice = indiceCancion
   cargarCancion(playlistIndice, cancionIndice);
   reproducirCancion();
-  // console.log(playlistIndice)
 }
 
 function reproducirSeleccion(playlistIndice, cancionIndice) {
@@ -96,12 +95,8 @@ function cargarFavoritos(favoritos) {
   actualizarFavoritos();
 }
 
-function mostrarMenu(event) {
+function eliminarPlaylist(event) {
   event.preventDefault();
-  console.dir(event);
-  console.dir(event.target);
-  console.log(event);
-  console.log(event.target.innerHTML);
   playlists = playlists.filter(playlist => playlist.nombre != event.target.innerHTML);
   actualizarPlaylists();
 }
