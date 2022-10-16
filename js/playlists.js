@@ -18,7 +18,7 @@ fetch('canciones.json')
             json.forEach(cancion => {
                 html += `
                 <div class="tabla-datos-fila fila${cancion.id}" ondblclick="reproducirSeleccion(${playlist.id}-1, ${cancion.id}-1)">
-                <div class="datos-numero">${cancion.id}</div>
+                <div class="datos-numero" style="text-align: center;">${cancion.id}</div>
                 <div class="datos-titulo">
                   <img src="img/${cancion.imagen}.jpg" class="titulo-imagen"></img>
                   <div class="titulo-cancion">

@@ -1,5 +1,8 @@
 let favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; // Trae los datos desde el LocalStorage y si no existe crea un ARRAY vacío
 const botonCerrar = document.querySelector('.boton-cerrar'); // Botón para cerrar Modal Favoritos.
+window.addEventListener('load', (event) => {
+    cargarFavoritos(favoritos);
+});
 
 function agregarFavoritos(event) {
     const filaCancion = event.target.parentNode.parentNode;
@@ -7,6 +10,7 @@ function agregarFavoritos(event) {
     const isLiked = filaCancion.classList.contains('liked'); 
     
     if (!isLiked) {
+ 
         filaCancion.classList.add('liked');
         event.target.attributes.src.value = 'iconosweb/corazon.png';
 
@@ -17,8 +21,8 @@ function agregarFavoritos(event) {
             event.path[2].children[1].children[1].children[1].innerHTML, //Nombre Artista
             event.path[2].children[2].innerHTML, //Album Cancion
             event.path[2].children[3].innerHTML, //Fecha Agregado
-            event.path[2].children[4].children[1].innerHTML); // Duracion
-
+            event.path[2].children[4].children[1].innerHTML
+        ); // Duracion
 
         favoritos.push(nuevaCancion);
 
@@ -63,7 +67,7 @@ function actualizarFavoritos() {
     let html = '';
     favoritos.forEach(cancion => {
         html += `
-            <div class= "tabla-datos-fila fila-favoritos${cancion.id}" ondblclick="reproducirSeleccion(0, ${cancion.id}-1)">
+            <div class= "tabla-datos-fila fila-favoritos${cancion.id}">
                 <div class="datos-numero">${cancion.id}</div>
                 <div class="datos-titulo">
                     <img src="${cancion.imagen}" class="titulo-imagen"></img>

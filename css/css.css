@@ -584,7 +584,7 @@ body {
 }
 
 .login-fondo {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     height: 100%;
     background-color: #181818
@@ -596,7 +596,7 @@ body {
     height: 26%;
     background-color: #282828;
     border-radius: 2rem;
-    padding: 2rem;
+    padding: 2rem 2rem 5rem 2rem;
 }
 
 
@@ -759,4 +759,19 @@ body {
 /* HIDDEN  */
 .hidden {
     display: none;
+}
+
+footer h3 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.contactos {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}   
+
+.contactos img {
+    height: 3rem;
 }

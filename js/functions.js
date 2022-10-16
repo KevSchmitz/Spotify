@@ -79,15 +79,21 @@ function eliminarCancion() {
 
 /* LOCALSTORAGE */
 
-// Almacenar en LocalStorage
+// Almacenar en localStorage.
 function agregarLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
-// Llamar de localStorage
+// Llamar de localStorage.
 
 function traerLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
+}
+
+// Cargar Favoritos provenientes del localStorage al cargar la página.
+function cargarFavoritos(favoritos) {
+  favoritos;
+  actualizarFavoritos();
 }
 
 function mostrarMenu(event) {
