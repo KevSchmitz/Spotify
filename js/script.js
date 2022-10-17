@@ -102,8 +102,7 @@ botonRepetir.addEventListener('click', () => {
 audioPrincipal.addEventListener('ended', () => {
   switch (tomarTexto) {
     case 'repetir':
-      adelantarCancion(); // Para saltar la canción cuando termina.
-
+      adelantarCancion(indicePlaylist, indiceCancion); // Para saltar la canción cuando termina.
       break;
     case 'repetir_una':
       audioPrincipal.duration = 0;
